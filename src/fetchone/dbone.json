@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "name": "jagdeesh",
+      "age": "25",
+      "profession": "Staff Manager",
+      "id": "d026"
+    }
+  ],
+  "products": [
+    {
+      "productName": "refrigrator",
+      "brand": "Hitachy",
+      "id": "6966"
+    }
+  ]
+}

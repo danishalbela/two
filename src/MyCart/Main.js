@@ -1,6 +1,6 @@
 import React from "react";
 import Cart from "./Cart";
-
+import Navbar from "./Navbar"
 class Main extends React.Component{
 
 
@@ -33,11 +33,64 @@ class Main extends React.Component{
             ]
         }
         // console.log(this.state)
+        this.handleIncQty = this.handleIncQty.bind(this)
+        this.handleDecQty = this.handleDecQty.bind(this)
+        this.handleDelQty = this.handleDelQty.bind(this)
     }
 
    handleIncQty(para)
    {
+    // console.log(para)
+    let {products} = this.state
+    let index = this.state.products.indexOf(para)
+      
+   products[index].qty += 1
+   this.setState({products:products})
+   
+   }
+   handleDecQty(para)
+   {
     console.log(para)
+    let {products} = this.state
+    let index = this.state.products.indexOf(para)
+      
+    if(products[index].qty===0) return null
+   products[index].qty -= 1
+   
+   this.setState({products:products})
+   
+   }
+
+   handleDelQty(para)
+   {
+    console.log(para)
+
+    let {products} = this.state
+    let newProducts = products.filter(ele=>{
+        return ele.id !==para
+    })
+    console.log(newProducts)
+    this.setState({products:newProducts})
+   }
+
+   getCartCount(){
+    let {products} = this.state
+    let count = 0
+    products.forEach(ele=>{
+        count += ele.qty
+    })
+    return count
+   }
+
+   getCartTotal()
+   {
+    let {products} = this.state
+    let cartTotal =0
+
+    products.forEach(ele=>{
+        cartTotal = cartTotal+ele.qty*ele.price
+    })
+    return cartTotal
    }
 
     render(){
@@ -47,10 +100,19 @@ class Main extends React.Component{
         return(
             <div style={{border:'7px solid red'}}>
                 <h1>MAIN</h1>
+                <Navbar getCartCount = {this.getCartCount()}
+
+                />
                 <Cart
                     products={products}
                     handleIncQty={this.handleIncQty}
+                    handleDecQty={this.handleDecQty}
+                    handleDelQty={this.handleDelQty}
                 />
+               <hr/>
+               <h1>
+                Total = ${this.getCartTotal()}
+               </h1>
             </div>
         )
     }

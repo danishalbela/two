@@ -10,7 +10,7 @@ class Cart extends React.Component {
 
     render() 
     {
-        let {products,handleIncQty} = this.props
+        let {products,handleIncQty,handleDecQty,handleDelQty} = this.props
         return(
             <div>
                 <h1>CART</h1>
@@ -20,6 +20,8 @@ class Cart extends React.Component {
                         key={product.id}
                         product={product}
                         handleIncQty = {handleIncQty}
+                        handleDecQty = {handleDecQty}
+                        handleDelQty = {handleDelQty}
                     />
 
                   })

@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "name": "Raghav ji",
+            "age": "65",
+            "profession":"Staf Manager",
+            
+            "id":"4c4b"
+            
+        }
+    ],
+    "products":[
+        {
+            "productname": "refrigrator",
+            "brand":"Hitachi"
+             
+        }
+    ]
+}

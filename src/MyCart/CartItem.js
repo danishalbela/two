@@ -9,7 +9,7 @@ class CartItem extends React.Component {
 
     render() 
     {
-        let {product,handleIncQty} = this.props
+        let {product,handleIncQty,handleDecQty,handleDelQty} = this.props
         return(
             <>
                 <div style={{border:'2px solid green', marginTop:'20px'}}
@@ -26,11 +26,18 @@ class CartItem extends React.Component {
 
                        {/* icons start */}
                          <div className={ci.cartitemactions}>
-              <img src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png" alt="" className={ci.actionicons}
-                onClick={()=>handleIncQty(product.title)}
+              <img src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png" alt="" 
+              className={ci.actionicons}
+              onClick={()=>handleIncQty(product)}
               />
-              <img src="https://cdn-icons-png.flaticon.com/128/9068/9068779.png" alt="" className={ci.actionicons}/>
-              <img src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="" className={ci.actionicons}/>
+              <img src="https://cdn-icons-png.flaticon.com/128/9068/9068779.png" alt="" 
+              className={ci.actionicons}
+              onClick={()=>handleDecQty(product)}
+              />
+              <img src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="" 
+              className={ci.actionicons}
+                onClick={()=>handleDelQty(product.id)}
+              />
                          </div>
                        {/* icons end */}
                     </div>
